@@ -1,0 +1,30 @@
+ALO Chat
+
+Work list: 
+# profile : 30/7
+
+Advanced Work list: (Next Level Upgrade)
+# video calls 
+# chat group 
+# phone calls
+
+completed:
+# login
+# sign up
+# chat search
+# chat room
+# floating date
+# auto scroll to bottom
+# image picker
+# message reply
+# reply auto scroll
+# message delete
+# audio record
+# status
+# splash screen 
+# app launcher logo and name
+# chat home
+# logout
+# chat list delete
+# search all chats
+# search chats

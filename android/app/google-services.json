@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1064296043937",
+    "firebase_url": "https://cafe-house-a5eee-default-rtdb.firebaseio.com",
+    "project_id": "cafe-house-a5eee",
+    "storage_bucket": "cafe-house-a5eee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1064296043937:android:93e3c93f9222542205e7e0",
+        "android_client_info": {
+          "package_name": "com.example.alo_chat_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1064296043937-h2g7qlplf14k9spf62c0g0983v07g4dg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.alo_chat_app",
+            "certificate_hash": "7466f445bfca3a82da5b27b54aec32f6ca517b48"
+          }
+        },
+        {
+          "client_id": "1064296043937-gsg5077i7or3lh3vdi3godmv56dq3p30.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBebl6fYVSo5lvCWtQqPTCbk_vFjlsJsvs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1064296043937-gsg5077i7or3lh3vdi3godmv56dq3p30.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
