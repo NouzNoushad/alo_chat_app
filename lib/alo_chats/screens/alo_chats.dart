@@ -94,6 +94,14 @@ class _AloChatsState extends State<AloChats> {
                                   backgroundColor:
                                       CustomColors.backgroundColor2,
                                   radius: 30,
+                                  seenWidget: aloChatsCubit.chatRoom?.seen ??
+                                          false
+                                      ? Container()
+                                      : const Icon(
+                                          Icons.error,
+                                          color: CustomColors.backgroundColor1,
+                                          size: 25,
+                                        ),
                                   onTap: () {
                                     var navigator = Navigator.of(context);
                                     navigator.push(MaterialPageRoute(

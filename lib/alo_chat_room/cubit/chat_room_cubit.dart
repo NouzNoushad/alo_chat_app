@@ -91,6 +91,10 @@ class ChatRoomCubit extends Cubit<ChatRoomState> {
         onRightSwap, '', '', '', -1, file, fileName);
   }
 
+  updateSeenMessage(ChatRoomModel chatRoom) async {
+    await chatRoomService.updateSeenMessage(chatRoom);
+  }
+
   sendMessage(
       UserModel sender,
       ChatRoomModel chatRoom,
@@ -121,7 +125,7 @@ class ChatRoomCubit extends Cubit<ChatRoomState> {
           file,
           fileName);
     }
-    
+
     isReply = false;
     typing = false;
 

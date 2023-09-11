@@ -60,6 +60,7 @@ class _ChatsListState extends State<ChatsList> {
                   : aloChatsCubit.formatDateTime(
                       user.createdOn, ChatType.status),
               createdOn: '',
+              seenWidget: Container(),
               radius: widget.chatType == ChatType.search ? 28 : 31.5,
               backgroundColor: widget.chatType == ChatType.search
                   ? CustomColors.backgroundColor2

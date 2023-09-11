@@ -9,6 +9,7 @@ class ChatsListContainer extends StatelessWidget {
   final String aboutStatus;
   final String createdOn;
   final double radius;
+  final Widget seenWidget;
   final Color backgroundColor;
   final void Function()? onTap;
   const ChatsListContainer(
@@ -17,6 +18,7 @@ class ChatsListContainer extends StatelessWidget {
       required this.userName,
       required this.aboutStatus,
       required this.createdOn,
+      required this.seenWidget,
       required this.radius,
       required this.backgroundColor,
       required this.onTap});
@@ -78,12 +80,21 @@ class ChatsListContainer extends StatelessWidget {
                     ],
                   ),
                 ),
-                Text(
-                  createdOn,
-                  style: const TextStyle(
-                    fontSize: 12,
-                    color: CustomColors.backgroundColor1,
-                  ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(
+                      createdOn,
+                      style: const TextStyle(
+                        fontSize: 12,
+                        color: CustomColors.backgroundColor1,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 4,
+                    ),
+                    seenWidget,
+                  ],
                 ),
               ],
             ),

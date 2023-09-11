@@ -56,6 +56,7 @@ class ChatRoomService {
     });
 
     chatRoom.lastMessage = message;
+    chatRoom.seen = false;
     chatRoom.createdOn = DateTime.now();
 
     FirebaseFirestore.instance
@@ -64,6 +65,17 @@ class ChatRoomService {
         .set(chatRoomModelToMap(chatRoom))
         .then((value) {
       print('Set last Message');
+    });
+  }
+
+  updateSeenMessage(ChatRoomModel chatRoom) {
+    chatRoom.seen = true;
+    FirebaseFirestore.instance
+        .collection(chatRoomDbName)
+        .doc(chatRoom.chatRoomId)
+        .set(chatRoomModelToMap(chatRoom))
+        .then((value) {
+      print('Set last seen Message');
     });
   }
 

@@ -44,6 +44,9 @@ class _AloChatRoomState extends State<AloChatRoom> {
 
   @override
   Widget build(BuildContext context) {
+    if (!widget.chatRoom.seen) {
+      chatRoomCubit.updateSeenMessage(widget.chatRoom);
+    }
     return Scaffold(
       backgroundColor: CustomColors.backgroundColor,
       body: WillPopScope(
