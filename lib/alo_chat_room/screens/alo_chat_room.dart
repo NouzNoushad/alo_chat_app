@@ -325,6 +325,7 @@ class _AloChatRoomState extends State<AloChatRoom> {
                                         int refIndex = isReply
                                             ? chatRoomCubit.refIndex
                                             : -1;
+                                        print('called');
                                         chatRoomCubit.sendMessage(
                                             widget.userModel,
                                             widget.chatRoom,

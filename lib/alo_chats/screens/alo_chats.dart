@@ -94,7 +94,7 @@ class _AloChatsState extends State<AloChats> {
                                   backgroundColor:
                                       CustomColors.backgroundColor2,
                                   radius: 30,
-                                  seenWidget: aloChatsCubit.chatRoom?.seen ??
+                                  seenWidget: aloChatsCubit.chatRoom?.fromId == aloChatsCubit.user?.uid ? Container() : aloChatsCubit.chatRoom?.seen ??
                                           false
                                       ? Container()
                                       : const Icon(

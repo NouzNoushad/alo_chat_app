@@ -25,7 +25,7 @@ class AloChatsService {
   String fetchParticipants(snapshot, user) {
     Map<String, dynamic> chatRoomSnapshot = snapshot.data();
     chatRoom = chatRoomModelFromMap(chatRoomSnapshot);
-    List<String> participantsKey = chatRoom!.participants.keys.toList();
+    List<String> participantsKey = chatRoom?.participants.keys.toList() ?? [];
     participantsKey.remove(user?.uid);
     print('////////////////${participantsKey[0]}');
     return participantsKey[0];
@@ -56,6 +56,7 @@ class AloChatsService {
             targetUser.uid.toString(): true
           },
           lastMessage: '',
+          fromId: '',
           createdOn: DateTime.now());
 
       await FirebaseFirestore.instance

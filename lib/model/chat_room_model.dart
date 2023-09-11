@@ -7,7 +7,8 @@ class ChatRoomModel {
   String chatRoomId;
   Map<String, dynamic> participants;
   String lastMessage;
-  bool seen;
+  bool seen = false;
+  String? fromId = '';
   DateTime createdOn;
 
   ChatRoomModel({
@@ -15,6 +16,7 @@ class ChatRoomModel {
     required this.participants,
     required this.lastMessage,
     this.seen = false,
+    this.fromId = '',
     required this.createdOn,
   });
 
@@ -23,6 +25,7 @@ class ChatRoomModel {
         participants: json["participants"],
         lastMessage: json["last_message"],
         seen: json["seen"],
+        fromId: json["from_id"],
         createdOn: json["created_on"].toDate(),
       );
 
@@ -31,6 +34,7 @@ class ChatRoomModel {
         "participants": participants,
         "last_message": lastMessage,
         "seen": seen,
+        "from_id": fromId,
         "created_on": createdOn,
       };
 }

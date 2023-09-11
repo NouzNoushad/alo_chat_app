@@ -15,6 +15,7 @@ import 'alo_home/cubit/alo_home_cubit.dart';
 import 'alo_home/service/alo_home_service.dart';
 import 'core/colors.dart';
 import 'login/cubit/login_cubit.dart';
+import 'login/screen/login_screen.dart';
 import 'login/service/login_service.dart';
 import 'sign_up/cubit/sign_up_cubit.dart';
 import 'sign_up/service/sign_up_service.dart';
@@ -78,7 +79,7 @@ class MyApp extends StatelessWidget {
         //       profilePic: '',
         //       about: ''),
         // ),
-        home: const AloHomeScreen(),
+        home: const AloChatLogin(),
       ),
     );
   }

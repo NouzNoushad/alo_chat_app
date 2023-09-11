@@ -11,6 +11,7 @@ class UserModel {
   String phoneNo;
   String profilePic;
   String about;
+  bool lastSeen = false;
   DateTime? createdOn;
 
   UserModel({
@@ -21,6 +22,7 @@ class UserModel {
     required this.phoneNo,
     required this.profilePic,
     required this.about,
+    this.lastSeen = false,
     this.createdOn,
   });
 
@@ -32,6 +34,7 @@ class UserModel {
       phoneNo: json["phone_no"],
       profilePic: json["profile_pic"],
       about: json["about"],
+      lastSeen: json["last_seen"],
       createdOn: json["created_on"].toDate());
 
   Map<String, dynamic> toMap() => {
@@ -42,6 +45,7 @@ class UserModel {
         "phone_no": phoneNo,
         "profile_pic": profilePic,
         "about": about,
+        "last_seen": lastSeen,
         "created_on": createdOn,
       };
 }
