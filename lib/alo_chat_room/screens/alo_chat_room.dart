@@ -139,6 +139,7 @@ class _AloChatRoomState extends State<AloChatRoom> {
                 child: Column(children: [
                   Expanded(
                     child: ChatRoomList(
+                      targetUser: widget.targetUser,
                       userModel: widget.userModel,
                       chatRoom: widget.chatRoom,
                     ),

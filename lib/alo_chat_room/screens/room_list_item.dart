@@ -185,13 +185,28 @@ class _ChatRoomListItemState extends State<ChatRoomListItem> {
                       ),
                       Align(
                         alignment: Alignment.bottomRight,
-                        child: Text(
-                          DateFormat.jm()
-                              .format(widget.element['created_on'].toDate()),
-                          textAlign: TextAlign.left,
-                          style: const TextStyle(
-                              color: CustomColors.backgroundDarkColor,
-                              fontSize: 11),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(right: 6),
+                              child: Text(
+                                DateFormat.jm().format(
+                                    widget.element['created_on'].toDate()),
+                                textAlign: TextAlign.left,
+                                style: const TextStyle(
+                                    color: CustomColors.backgroundDarkColor,
+                                    fontSize: 11),
+                              ),
+                            ),
+                            widget.element['sender_uid'] == widget.userModel.uid
+                                ? Icon(Icons.done_all,
+                                    color: widget.element['last_seen']
+                                        ? CustomColors.backgroundColor1
+                                        : Colors.grey,
+                                    size: 18)
+                                : const SizedBox.shrink(),
+                          ],
                         ),
                       ),
                     ],

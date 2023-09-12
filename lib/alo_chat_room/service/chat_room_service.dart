@@ -10,17 +10,18 @@ import '../../model/message_model.dart';
 
 class ChatRoomService {
   sendMessage(
-      String senderUid,
-      String senderName,
-      String message,
-      ChatRoomModel chatRoom,
-      String isReply,
-      String refMessage,
-      String refName,
-      String refId,
-      int refIndex,
-      String file,
-      String fileName) async {
+    String senderUid,
+    String senderName,
+    String message,
+    ChatRoomModel chatRoom,
+    String isReply,
+    String refMessage,
+    String refName,
+    String refId,
+    int refIndex,
+    String file,
+    String fileName,
+  ) async {
     String fileUrl = "";
     if (file == "") {
       fileUrl = "";
@@ -43,6 +44,7 @@ class ChatRoomService {
         refId: refId,
         refIndex: refIndex,
         file: fileUrl,
+        lastSeen: false,
         fileName: fileName);
 
     FirebaseFirestore.instance
@@ -78,6 +80,19 @@ class ChatRoomService {
         .set(chatRoomModelToMap(chatRoom))
         .then((value) {
       print('Set last seen Message');
+    });
+  }
+
+  updateLastSeenMessage(MessageModel messageModel, ChatRoomModel chatRoom) {
+    messageModel.lastSeen = true;
+    FirebaseFirestore.instance
+        .collection(chatRoomDbName)
+        .doc(chatRoom.chatRoomId)
+        .collection(messageDbName)
+        .doc(messageModel.messageId)
+        .set(messageModelToMap(messageModel))
+        .then((value) {
+      print('Message updated');
     });
   }
 

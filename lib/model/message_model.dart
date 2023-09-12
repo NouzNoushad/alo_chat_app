@@ -1,3 +1,6 @@
+MessageModel messageModelFromMap(Map<String, dynamic> data) =>
+    MessageModel.fromMap(data);
+
 Map<String, dynamic> messageModelToMap(MessageModel data) => data.toMap();
 
 class MessageModel {
@@ -13,6 +16,7 @@ class MessageModel {
   String file;
   String fileName;
   String refId;
+  bool lastSeen;
 
   MessageModel({
     required this.senderUid,
@@ -27,7 +31,23 @@ class MessageModel {
     required this.file,
     required this.fileName,
     required this.refId,
+    this.lastSeen = false,
   });
+
+  factory MessageModel.fromMap(Map<String, dynamic> json) => MessageModel(
+      senderUid: json["sender_uid"],
+      senderName: json["sender_name"],
+      message: json["message"],
+      messageId: json["message_id"],
+      isReply: json["is_reply"],
+      refMessage: json["ref_message"],
+      refName: json["ref_name"],
+      refIndex: json["ref_index"],
+      file: json["file"],
+      fileName: json["file_name"],
+      refId: json["ref_id"],
+      lastSeen: json["last_seen"],
+      createdOn: json["created_on"].toDate());
 
   Map<String, dynamic> toMap() => {
         "sender_uid": senderUid,
@@ -42,5 +62,6 @@ class MessageModel {
         "ref_index": refIndex,
         "file": file,
         "file_name": fileName,
+        "last_seen": lastSeen,
       };
 }

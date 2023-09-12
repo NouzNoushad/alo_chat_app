@@ -12,10 +12,11 @@ import '../../model/chat_room_model.dart';
 import '../../model/user_model.dart';
 
 class ChatRoomList extends StatefulWidget {
+  final UserModel targetUser;
   final ChatRoomModel chatRoom;
   final UserModel userModel;
   const ChatRoomList(
-      {super.key, required this.chatRoom, required this.userModel});
+      {super.key, required this.chatRoom, required this.userModel, required this.targetUser});
 
   @override
   State<ChatRoomList> createState() => _ChatRoomListState();
@@ -83,6 +84,12 @@ class _ChatRoomListState extends State<ChatRoomList> {
                           itemPositionsListener:
                               chatRoomCubit.itemPositionsListener,
                           indexedItemBuilder: (context, element, index) {
+                            if (element['sender_uid'] ==
+                                widget.targetUser.uid) {
+                                  chatRoomCubit.updateLastSeenMessage(
+                                  element, widget.chatRoom);
+                                }
+                            
                             return InkWell(
                               overlayColor: MaterialStateProperty.all(
                                   const Color.fromARGB(76, 134, 43, 13)),

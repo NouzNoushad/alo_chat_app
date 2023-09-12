@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:alo_chat_app/alo_chat_room/service/chat_room_service.dart';
 import 'package:alo_chat_app/model/chat_room_model.dart';
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
@@ -14,6 +15,7 @@ import 'package:sticky_grouped_list/sticky_grouped_list.dart';
 
 import '../../core/colors.dart';
 import '../../model/audios.dart';
+import '../../model/message_model.dart';
 import '../../model/user_model.dart';
 
 part 'chat_room_state.dart';
@@ -95,6 +97,13 @@ class ChatRoomCubit extends Cubit<ChatRoomState> {
     await chatRoomService.updateSeenMessage(chatRoom);
   }
 
+  updateLastSeenMessage(
+      QueryDocumentSnapshot message, ChatRoomModel chatRoom) async {
+    Map<String, dynamic> messageMap = message.data() as Map<String, dynamic>;
+    MessageModel messageModel = messageModelFromMap(messageMap);
+    await chatRoomService.updateLastSeenMessage(messageModel, chatRoom);
+  }
+
   sendMessage(
       UserModel sender,
       ChatRoomModel chatRoom,
@@ -113,17 +122,18 @@ class ChatRoomCubit extends Cubit<ChatRoomState> {
       String senderUid = sender.uid;
       String senderName = sender.nickName;
       await chatRoomService.sendMessage(
-          senderUid,
-          senderName,
-          message,
-          chatRoom,
-          isReply,
-          refMessage,
-          refName,
-          refId,
-          refIndex,
-          file,
-          fileName);
+        senderUid,
+        senderName,
+        message,
+        chatRoom,
+        isReply,
+        refMessage,
+        refName,
+        refId,
+        refIndex,
+        file,
+        fileName,
+      );
     }
 
     isReply = false;
