@@ -7,7 +7,7 @@ class ChatRoomModel {
   String chatRoomId;
   Map<String, dynamic> participants;
   String lastMessage;
-  bool seen = false;
+  int seen = 0;
   String? fromId = '';
   DateTime createdOn;
 
@@ -15,7 +15,7 @@ class ChatRoomModel {
     required this.chatRoomId,
     required this.participants,
     required this.lastMessage,
-    this.seen = false,
+    this.seen = 0,
     this.fromId = '',
     required this.createdOn,
   });

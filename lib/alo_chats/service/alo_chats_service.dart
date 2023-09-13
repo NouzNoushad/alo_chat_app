@@ -57,6 +57,7 @@ class AloChatsService {
           },
           lastMessage: '',
           fromId: '',
+          seen: 0,
           createdOn: DateTime.now());
 
       await FirebaseFirestore.instance

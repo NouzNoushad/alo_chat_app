@@ -58,7 +58,7 @@ class ChatRoomService {
     });
 
     chatRoom.lastMessage = message;
-    chatRoom.seen = false;
+    chatRoom.seen ++;
     chatRoom.fromId = senderUid;
     chatRoom.createdOn = DateTime.now();
 
@@ -72,7 +72,7 @@ class ChatRoomService {
   }
 
   updateSeenMessage(ChatRoomModel chatRoom) {
-    chatRoom.seen = true;
+    chatRoom.seen = 0;
     chatRoom.fromId = '';
     FirebaseFirestore.instance
         .collection(chatRoomDbName)

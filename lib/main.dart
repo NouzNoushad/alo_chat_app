@@ -2,7 +2,6 @@ import 'package:alo_chat_app/alo_chat_room/cubit/chat_room_cubit.dart';
 import 'package:alo_chat_app/alo_chat_room/service/chat_room_service.dart';
 import 'package:alo_chat_app/alo_chats/cubit/alo_chats_cubit.dart';
 import 'package:alo_chat_app/alo_chats/service/alo_chats_service.dart';
-import 'package:alo_chat_app/alo_home/screens/alo_home_screen.dart';
 import 'package:alo_chat_app/alo_status/cubit/alo_status_cubit.dart';
 import 'package:alo_chat_app/alo_status/service/alo_status_service.dart';
 import 'package:alo_chat_app/complete_profile/cubit/complete_profile_cubit.dart';

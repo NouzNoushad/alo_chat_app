@@ -44,7 +44,7 @@ class _AloChatRoomState extends State<AloChatRoom> {
 
   @override
   Widget build(BuildContext context) {
-    if (!widget.chatRoom.seen) {
+    if (widget.chatRoom.seen > 0) {
       chatRoomCubit.updateSeenMessage(widget.chatRoom);
     }
     return Scaffold(

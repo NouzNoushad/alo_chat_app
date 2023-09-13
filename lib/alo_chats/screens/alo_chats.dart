@@ -94,14 +94,27 @@ class _AloChatsState extends State<AloChats> {
                                   backgroundColor:
                                       CustomColors.backgroundColor2,
                                   radius: 30,
-                                  seenWidget: aloChatsCubit.chatRoom?.fromId == aloChatsCubit.user?.uid ? Container() : aloChatsCubit.chatRoom?.seen ??
-                                          false
+                                  seenWidget: aloChatsCubit.chatRoom?.fromId ==
+                                          aloChatsCubit.user?.uid
                                       ? Container()
-                                      : const Icon(
-                                          Icons.error,
-                                          color: CustomColors.backgroundColor1,
-                                          size: 25,
-                                        ),
+                                      : aloChatsCubit.chatRoom!.seen == 0
+                                          ? Container()
+                                          : CircleAvatar(
+                                              backgroundColor:
+                                                  CustomColors.backgroundColor1,
+                                              radius: 10,
+                                              child: FittedBox(
+                                                child: Text(
+                                                  '${aloChatsCubit.chatRoom?.seen ?? 0}',
+                                                  style: const TextStyle(
+                                                    color:
+                                                        CustomColors.whiteColor,
+                                                    fontSize: 12,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
                                   onTap: () {
                                     var navigator = Navigator.of(context);
                                     navigator.push(MaterialPageRoute(
